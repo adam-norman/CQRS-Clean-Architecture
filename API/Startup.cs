@@ -1,5 +1,7 @@
+using API.PipelineBehaviours;
 using Application.Commands;
 using Application.Queries;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +41,9 @@ namespace API
                     b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
             services.AddTransient<IApplicationContext, ApplicationContext>();
             services.AddMediatR(typeof(GetProductByIdQuery).GetTypeInfo().Assembly);
+            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
             #region Swagger
             services.AddSwaggerGen(c =>
             {
@@ -61,7 +66,7 @@ namespace API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -7,3 +7,4 @@ C:\Mahmoud\CQRS-Clean-Architecture\Domain\obj\Debug\netcoreapp3.1\Domain.Assembl
 C:\Mahmoud\CQRS-Clean-Architecture\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
 C:\Mahmoud\CQRS-Clean-Architecture\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 C:\Mahmoud\CQRS-Clean-Architecture\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
+C:\Mahmoud\CQRS-Clean-Architecture\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.AssemblyReference.cache

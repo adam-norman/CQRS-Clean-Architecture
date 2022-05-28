@@ -32,12 +32,19 @@
       "API/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "FluentValidation": "11.0.2",
+          "FluentValidation.DependencyInjectionExtensions": "11.0.2",
           "MediatR": "10.0.1",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
           "Microsoft.EntityFrameworkCore.Design": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.17",
           "Persistance": "1.0.0",
+          "Serilog.AspNetCore": "5.0.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Enrichers.Process": "2.0.2",
+          "Serilog.Enrichers.Thread": "3.1.0",
+          "Serilog.Settings.Configuration": "3.3.0",
           "Swashbuckle.AspNetCore": "6.3.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -117,9 +124,9 @@
           "Microsoft.AspNetCore.WebSockets": "3.1.0.0",
           "Microsoft.AspNetCore.WebUtilities": "3.1.0.0",
           "Microsoft.CSharp.Reference": "4.0.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "3.1.0.0",
+          "Microsoft.Extensions.Configuration.Binder.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "3.1.0.0",
-          "Microsoft.Extensions.Configuration": "3.1.0.0",
+          "Microsoft.Extensions.Configuration.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Ini": "3.1.0.0",
@@ -129,12 +136,10 @@
           "Microsoft.Extensions.Configuration.Xml": "3.1.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "3.1.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Composite": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Physical": "3.1.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "3.1.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Hosting": "3.1.0.0",
           "Microsoft.Extensions.Http": "3.1.0.0",
           "Microsoft.Extensions.Identity.Core": "3.1.0.0",
@@ -148,7 +153,7 @@
           "Microsoft.Extensions.Logging.EventSource": "3.1.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "3.1.0.0",
           "Microsoft.Extensions.ObjectPool": "3.1.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions.Reference": "3.1.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "3.1.0.0",
           "Microsoft.Extensions.WebEncoders": "3.1.0.0",
           "Microsoft.JSInterop": "3.1.0.0",
@@ -280,7 +285,7 @@
           "System.Text.Encoding.Reference": "4.1.2.0",
           "System.Text.Encoding.Extensions.Reference": "4.1.2.0",
           "System.Text.Encodings.Web": "4.0.5.0",
-          "System.Text.Json": "4.0.1.0",
+          "System.Text.Json.Reference": "4.0.1.0",
           "System.Text.RegularExpressions.Reference": "4.2.2.0",
           "System.Threading.Channels": "4.0.2.0",
           "System.Threading.Reference": "4.1.2.0",
@@ -315,6 +320,32 @@
         },
         "compile": {
           "API.dll": {}
+        }
+      },
+      "FluentValidation/11.0.2": {
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/11.0.2": {
+        "dependencies": {
+          "FluentValidation": "11.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -561,6 +592,11 @@
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "5.0.0"
@@ -573,6 +609,11 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "2.0.0"
         }
       },
       "Microsoft.Extensions.DependencyInjection/5.0.2": {
@@ -598,6 +639,51 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/3.0.0": {
+        "dependencies": {
+          "System.Text.Json": "4.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46305"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.8": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "3.1.8.0",
+            "fileVersion": "3.100.820.42004"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/3.1.8": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.8",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "3.1.8.0",
+            "fileVersion": "3.100.820.42004"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/5.0.0": {
@@ -642,6 +728,14 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
         }
       },
       "Microsoft.Extensions.Primitives/5.0.0": {
@@ -814,6 +908,186 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.NETCore.Targets": "1.1.3"
+        }
+      },
+      "Serilog/2.10.0": {
+        "runtime": {
+          "lib/netstandard2.1/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.10.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Serilog.dll": {}
+        }
+      },
+      "Serilog.AspNetCore/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Serilog": "2.10.0",
+          "Serilog.Extensions.Hosting": "4.2.0",
+          "Serilog.Formatting.Compact": "1.1.0",
+          "Serilog.Settings.Configuration": "3.3.0",
+          "Serilog.Sinks.Console": "4.0.1",
+          "Serilog.Sinks.Debug": "2.0.0",
+          "Serilog.Sinks.File": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Serilog.AspNetCore.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Serilog.AspNetCore.dll": {}
+        }
+      },
+      "Serilog.Enrichers.Environment/2.2.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Enrichers.Environment.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Enrichers.Environment.dll": {}
+        }
+      },
+      "Serilog.Enrichers.Process/2.0.2": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Enrichers.Process.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Enrichers.Process.dll": {}
+        }
+      },
+      "Serilog.Enrichers.Thread/3.1.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Enrichers.Thread.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Enrichers.Thread.dll": {}
+        }
+      },
+      "Serilog.Extensions.Hosting/4.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.1.8",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Serilog": "2.10.0",
+          "Serilog.Extensions.Logging": "3.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Extensions.Hosting.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Serilog.Extensions.Hosting.dll": {}
+        }
+      },
+      "Serilog.Extensions.Logging/3.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {}
+        }
+      },
+      "Serilog.Formatting.Compact/1.1.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Formatting.Compact.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Formatting.Compact.dll": {}
+        }
+      },
+      "Serilog.Settings.Configuration/3.3.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyModel": "3.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {}
+        }
+      },
+      "Serilog.Sinks.Console/4.0.1": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Sinks.Console.dll": {}
+        }
+      },
+      "Serilog.Sinks.Debug/2.0.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/5.0.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.File.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Serilog.Sinks.File.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/6.3.1": {
@@ -1400,6 +1674,7 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
+      "System.Text.Json/4.6.0": {},
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -2002,7 +2277,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration.Binder/3.1.0.0": {
+      "Microsoft.Extensions.Configuration.Binder.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.Binder.dll": {}
         },
@@ -2014,7 +2289,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration/3.1.0.0": {
+      "Microsoft.Extensions.Configuration.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.dll": {}
         },
@@ -2074,12 +2349,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.FileProviders.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.FileProviders.Composite/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.FileProviders.Composite.dll": {}
@@ -2101,12 +2370,6 @@
       "Microsoft.Extensions.FileSystemGlobbing/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.FileSystemGlobbing.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Hosting.Abstractions.dll": {}
         },
         "compileOnly": true
       },
@@ -2188,7 +2451,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         },
@@ -2980,7 +3243,7 @@
         },
         "compileOnly": true
       },
-      "System.Text.Json/4.0.1.0": {
+      "System.Text.Json.Reference/4.0.1.0": {
         "compile": {
           "System.Text.Json.dll": {}
         },
@@ -3162,6 +3425,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "FluentValidation/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ik/xogKqBmZWIURMXNEbugJlKka6iV9a4qckmKDp7sHSwIfgkZ/ewzCuAeUTkFdVZujfDW6mCLMjrrR6GG4xLQ==",
+      "path": "fluentvalidation/11.0.2",
+      "hashPath": "fluentvalidation.11.0.2.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ChfGHFGoLSN97MKZcippJ2qJskWuv6I3E0ngV5OTp3FhaPfFC+KcUMqaE72HtT13B8hkP/XmHlQfgSTzsmsdZw==",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.0.2",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.11.0.2.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -3281,12 +3558,26 @@
       "path": "microsoft.extensions.caching.memory/5.0.0",
       "hashPath": "microsoft.extensions.caching.memory.5.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Configuration/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
+      "path": "microsoft.extensions.configuration/2.0.0",
+      "hashPath": "microsoft.extensions.configuration.2.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ETjSBHMp3OAZ4HxGQYpwyGsD8Sw5FegQXphi0rpoGMT74S4+I2mm7XJEswwn59XAaKOzC15oDSOWEE8SzDCd6Q==",
       "path": "microsoft.extensions.configuration.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Binder/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IznHHzGUtrdpuQqIUdmzF6TYPcsYHONhHh3o9dGp39sX/9Zfmt476UnhvU0UhXgJnXXAikt/MpN6AuSLCCMdEQ==",
+      "path": "microsoft.extensions.configuration.binder/2.0.0",
+      "hashPath": "microsoft.extensions.configuration.binder.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/5.0.2": {
       "type": "package",
@@ -3301,6 +3592,27 @@
       "sha512": "sha512-xlzi2IYREJH3/m6+lUrQlujzX8wDitm4QGnUu6kUXTQAWPuZY8i+ticFJbzfqaetLA6KR/rO6Ew/HuYD+bxifg==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyModel/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Iaectmzg9Dc4ZbKX/FurrRjgO/I8rTumL5UU+Uube6vZuGetcnXoIgTA94RthFWePhdMVm8MMhVFJZdbzMsdyQ==",
+      "path": "microsoft.extensions.dependencymodel/3.0.0",
+      "hashPath": "microsoft.extensions.dependencymodel.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U7ffyzrPfRDH5K3h/mBpqJVoHbppw1kc1KyHZcZeDR7b1A0FRaqMSiizGpN9IGwWs9BuN7oXIKFyviuSGBjHtQ==",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.8",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/3.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7ZJUKwPipkDvuv2KJPZ3r01wp2AWNMiYH+61i0dL89F7QICknjKpWgLKLpTSUYFgl77S3b4264I6i4HzDdrb2A==",
+      "path": "microsoft.extensions.hosting.abstractions/3.1.8",
+      "hashPath": "microsoft.extensions.hosting.abstractions.3.1.8.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/5.0.0": {
       "type": "package",
@@ -3322,6 +3634,13 @@
       "sha512": "sha512-CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
       "path": "microsoft.extensions.options/5.0.0",
       "hashPath": "microsoft.extensions.options.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y/lGICwO27fCkQRK3tZseVzFjZaxfGmui990E67sB4MuiPzdJHnJDS/BeYWrHShSSBgCl4KyKRx4ux686fftPg==",
+      "path": "microsoft.extensions.options.configurationextensions/2.0.0",
+      "hashPath": "microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/5.0.0": {
       "type": "package",
@@ -3420,6 +3739,90 @@
       "sha512": "sha512-c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
       "path": "runtime.native.system/4.3.0",
       "hashPath": "runtime.native.system.4.3.0.nupkg.sha512"
+    },
+    "Serilog/2.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QX0hmf37a0/OZLxM3wL7V6/ADvC1XihXN4Kq/p6d8lCPfgkRdiuhbWlMaFjR9Av0dy5F0+MBeDmDdRZN/YwQA==",
+      "path": "serilog/2.10.0",
+      "hashPath": "serilog.2.10.0.nupkg.sha512"
+    },
+    "Serilog.AspNetCore/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/JO/txIxRR61x1UXQAgUzG2Sx05o1QHCkokVBWrKzmAoDu+p5EtCAj7L/TVVg7Ezhh3GPiZ0JI9OJCmRO9tSRw==",
+      "path": "serilog.aspnetcore/5.0.0",
+      "hashPath": "serilog.aspnetcore.5.0.0.nupkg.sha512"
+    },
+    "Serilog.Enrichers.Environment/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DMrj3A4l65kc4JouQyZjjFv7N58Y7lGsB81kSzorTwUGeI2wrTy7CVwSOfG90/Pcu/HV5bwGrUmxDZ38pON+5Q==",
+      "path": "serilog.enrichers.environment/2.2.0",
+      "hashPath": "serilog.enrichers.environment.2.2.0.nupkg.sha512"
+    },
+    "Serilog.Enrichers.Process/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T9EjKKLsL6qC/3eOLUAKEPBLEqPDmt5BLXaQdPMaxJzuex+MeXA8DuAiPboUaftp3kbnCN4ZgZpDvs+Fa7OHuw==",
+      "path": "serilog.enrichers.process/2.0.2",
+      "hashPath": "serilog.enrichers.process.2.0.2.nupkg.sha512"
+    },
+    "Serilog.Enrichers.Thread/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-85lWsGRJpRxvKT6j/H67no55SUBsBIvp556TKuBTGhjtoPeq+L7j/sDWbgAtvT0p7u7/phJyX6j35PQ4Vtqw0g==",
+      "path": "serilog.enrichers.thread/3.1.0",
+      "hashPath": "serilog.enrichers.thread.3.1.0.nupkg.sha512"
+    },
+    "Serilog.Extensions.Hosting/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gT2keceCmPQR9EX0VpXQZvUgELdfE7yqJ7MOxBhm3WLCblcvRgswEOOTgok/DHObbM15A3V/DtF3VdVDQPIZzQ==",
+      "path": "serilog.extensions.hosting/4.2.0",
+      "hashPath": "serilog.extensions.hosting.4.2.0.nupkg.sha512"
+    },
+    "Serilog.Extensions.Logging/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IWfem7wfrFbB3iw1OikqPFNPEzfayvDuN4WP7Ue1AVFskalMByeWk3QbtUXQR34SBkv1EbZ3AySHda/ErDgpcg==",
+      "path": "serilog.extensions.logging/3.1.0",
+      "hashPath": "serilog.extensions.logging.3.1.0.nupkg.sha512"
+    },
+    "Serilog.Formatting.Compact/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pNroKVjo+rDqlxNG5PXkRLpfSCuDOBY0ri6jp9PLe505ljqwhwZz8ospy2vWhQlFu5GkIesh3FcDs4n7sWZODA==",
+      "path": "serilog.formatting.compact/1.1.0",
+      "hashPath": "serilog.formatting.compact.1.1.0.nupkg.sha512"
+    },
+    "Serilog.Settings.Configuration/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7GNudISZwqaT902hqEL2OFGTZeUFWfnrNLupJkOqeF41AR3GjcxX+Hwb30xb8gG2/CDXsCMVfF8o0+8KY0fJNg==",
+      "path": "serilog.settings.configuration/3.3.0",
+      "hashPath": "serilog.settings.configuration.3.3.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Console/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-apLOvSJQLlIbKlbx+Y2UDHSP05kJsV7mou+fvJoRGs/iR+jC22r8cuFVMjjfVxz/AD4B2UCltFhE1naRLXwKNw==",
+      "path": "serilog.sinks.console/4.0.1",
+      "hashPath": "serilog.sinks.console.4.0.1.nupkg.sha512"
+    },
+    "Serilog.Sinks.Debug/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y6g3OBJ4JzTyyw16fDqtFcQ41qQAydnEvEqmXjhwhgjsnG/FaJ8GUqF5ldsC/bVkK8KYmqrPhDO+tm4dF6xx4A==",
+      "path": "serilog.sinks.debug/2.0.0",
+      "hashPath": "serilog.sinks.debug.2.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.File/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
+      "path": "serilog.sinks.file/5.0.0",
+      "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.3.1": {
       "type": "package",
@@ -3840,6 +4243,13 @@
       "sha512": "sha512-YVMK0Bt/A43RmwizJoZ22ei2nmrhobgeiYwFzC4YAN+nue8RF6djXDMog0UCn+brerQoYVyaS+ghy9P/MUVcmw==",
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
+    },
+    "System.Text.Json/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4F8Xe+JIkVoDJ8hDAZ7HqLkjctN/6WItJIzQaifBwClC7wmoLSda/Sv2i6i1kycqDb3hWF4JCVbpAweyOKHEUA==",
+      "path": "system.text.json/4.6.0",
+      "hashPath": "system.text.json.4.6.0.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
@@ -4309,7 +4719,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration.Binder/3.1.0.0": {
+    "Microsoft.Extensions.Configuration.Binder.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4319,7 +4729,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration/3.1.0.0": {
+    "Microsoft.Extensions.Configuration.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4369,11 +4779,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.FileProviders.Composite/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -4390,11 +4795,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.FileSystemGlobbing/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4464,7 +4864,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0.0": {
+    "Microsoft.Extensions.Options.ConfigurationExtensions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -5124,7 +5524,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Text.Json/4.0.1.0": {
+    "System.Text.Json.Reference/4.0.1.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
